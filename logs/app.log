@@ -1,0 +1,63 @@
+2022-11-09 14:21:54,568 FATAL   AuthApp.Debugging - this is a fatal print int Level:100
+2022-11-09 14:21:54,572 ERROR   AuthApp.Debugging - this is a error print int Level:200
+2022-11-09 14:21:54,572 WARN    AuthApp.Debugging - this is a warn print int Level:300
+2022-11-09 14:21:54,572 INFO    AuthApp.Debugging - this is a info print int Level:400
+2022-11-09 14:21:54,572 DEBUG   AuthApp.Debugging - this is a debug print int Level:500
+2022-11-09 14:21:54,572 TRACE   AuthApp.Debugging - this is a trace print int Level:600
+2022-11-09 14:26:06,539 INFO    AuthApp.AuthenticationController - ranysaliman@gmail.com
+2022-11-09 14:26:06,550 INFO    AuthApp.AuthenticationController - shilat@gmail.com
+2022-11-09 14:43:51,167 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:43:51,179 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 14:44:05,374 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:44:05,385 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 14:44:05,385 ERROR   AuthApp.AuthenticationController - invalid password, required 6 letters or more
+2022-11-09 14:47:13,344 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:47:13,347 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:47:13,348 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:47:13,357 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 14:47:13,357 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:47:13,357 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:47:13,357 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:47:13,357 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:47:13,358 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:49:34,214 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:49:34,218 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:49:34,218 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:49:34,227 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 14:49:34,228 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:49:34,228 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:49:34,228 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:49:34,228 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:49:34,230 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:49:55,534 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:49:55,536 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:49:55,544 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 14:49:55,544 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:49:55,545 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:50:19,796 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 14:50:19,800 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 14:50:19,810 INFO    AuthApp.AuthenticationController - currently registering with email: shilatgmail.com
+2022-11-09 14:50:19,810 ERROR   AuthApp.AuthenticationController - invalid email, must include english letters / capital letters them @, then the website where the mail is located
+2022-11-09 14:50:19,810 ERROR   AuthApp.AuthenticationController - invalid Name, must include english letters / capital letters only!
+2022-11-09 15:49:48,903 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
+2022-11-09 15:49:48,905 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 15:49:48,917 DEBUG   AuthApp.Client - trying to register withshilat@gmail.com
+2022-11-09 15:49:48,917 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 15:49:48,919 ERROR   AuthApp.Client - %email is not logged in
+2022-11-09 15:49:48,919 ERROR   AuthApp.Client - %email is not logged in
+2022-11-09 15:49:48,919 ERROR   AuthApp.Client - %email is not logged in
+2022-11-09 15:49:48,920 ERROR   AuthApp.Client - %email is not logged in
+2022-11-09 15:50:19,207 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
+2022-11-09 15:50:19,209 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 15:50:19,211 ERROR   AuthApp.Client - %s email is not logged in
+2022-11-09 15:50:19,211 ERROR   AuthApp.Client - %s email is not logged in
+2022-11-09 15:50:19,211 ERROR   AuthApp.Client - %s email is not logged in
+2022-11-09 15:50:19,211 ERROR   AuthApp.Client - %s email is not logged in
+2022-11-09 15:51:52,096 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
+2022-11-09 15:51:52,098 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 15:51:52,099 ERROR   AuthApp.Client - ranysaliman@gmail.comemail is not logged in
+2022-11-09 15:51:52,099 ERROR   AuthApp.Client - ranysaliman@gmail.comemail is not logged in
+2022-11-09 15:51:52,100 ERROR   AuthApp.Client - nissimsaliman@gmail.comemail is not logged in
+2022-11-09 15:51:52,100 ERROR   AuthApp.Client - nissimsaliman@gmail.comemail is not logged in
+2022-11-09 15:52:07,164 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
+2022-11-09 15:52:07,166 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
