@@ -61,3 +61,12 @@
 2022-11-09 15:51:52,100 ERROR   AuthApp.Client - nissimsaliman@gmail.comemail is not logged in
 2022-11-09 15:52:07,164 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
 2022-11-09 15:52:07,166 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 16:48:04,153 DEBUG   AuthApp.Client - trying to register withranysaliman@gmail.com
+2022-11-09 16:48:04,155 INFO    AuthApp.AuthenticationController - currently registering with email: ranysaliman@gmail.com
+2022-11-09 16:48:04,165 DEBUG   AuthApp.Client - trying to register withshilat@gmail.com
+2022-11-09 16:48:04,165 INFO    AuthApp.AuthenticationController - currently registering with email: shilat@gmail.com
+2022-11-09 16:48:04,165 INFO    AuthApp.Client - trying to log in to ranysaliman@gmail.com
+2022-11-09 16:48:04,166 INFO    AuthApp.Client - trying to update name for ranysaliman@gmail.com
+2022-11-09 16:48:04,167 INFO    AuthApp.Client - trying to update email for ranysaliman@gmail.com
+2022-11-09 16:48:04,169 INFO    AuthApp.Client - trying to update password for nissimsaliman@gmail.com
+2022-11-09 16:48:04,170 INFO    AuthApp.Client - trying to delete nissimsaliman@gmail.com

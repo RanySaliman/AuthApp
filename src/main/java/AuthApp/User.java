@@ -5,10 +5,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class User {
     private static final AtomicInteger count = new AtomicInteger(0);
 
-    private final int id;
+    private int id;
     private String email;
     private String name;
     private String password;
+
+    public User() {}
 
     private User(String email, String name, String password) {
         this.id = count.incrementAndGet();

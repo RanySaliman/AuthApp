@@ -1,23 +1,22 @@
 package AuthApp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.Optional;
 
+@Service
 class UserService {
-    private static UserService singleInstance = null;
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
+    AuthenticationService authenticationService;
+
 
     private UserService() throws IOException {
         userRepository = AuthApp.UserRepository.getInstance();
-    }
-
-    public static UserService getInstance() throws IOException {
-        if (singleInstance == null) {
-            singleInstance = new UserService();
-        }
-
-        return singleInstance;
     }
 
     public boolean updateUserName(String email, String name, String token) throws IOException {
@@ -68,8 +67,6 @@ class UserService {
     }
 
     private void validateToken(String email, String token) throws IOException {
-        AuthenticationService authenticationService = AuthenticationService.getInstance();
-
         if (!authenticationService.isValidToken(email, token)) {
             throw new AccessDeniedException(String.format("User with email address: %s is not logged in!", email));
         }

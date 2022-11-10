@@ -2,6 +2,7 @@ package AuthApp;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class UserRepository {
     private static UserRepository singleInstance = null;
     private final String usersFilepath = "UsersDB";

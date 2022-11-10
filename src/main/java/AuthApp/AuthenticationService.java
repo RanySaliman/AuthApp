@@ -1,29 +1,24 @@
 package AuthApp;
 
+import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Service
 class AuthenticationService {
 
-    private static AuthenticationService singleInstance = null;
     private UserRepository userRepository;
     private Map<String, String> usersTokens;
     private static final int TOKEN_LENGTH = 10;
 
-    private AuthenticationService() throws IOException {
-        userRepository = UserRepository.getInstance();
+
+    private AuthenticationService() {
         usersTokens = new HashMap<>();
     }
 
-    public static AuthenticationService getInstance() throws IOException {
-        if (singleInstance == null) {
-            singleInstance = new AuthenticationService();
-        }
-
-        return singleInstance;
-    }
 
     public String login(String email, String password) {
         String token = isValidCredentials(email, password) ? generateToken() : null;
@@ -65,8 +60,7 @@ class AuthenticationService {
         return false;
     }
 
-    private boolean isExistingEmail (String email)
-    {
+    private boolean isExistingEmail(String email) {
         Optional<User> user = userRepository.getUserByEmail(email);
         return user.isPresent();
     }
@@ -75,8 +69,8 @@ class AuthenticationService {
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder sb = new StringBuilder(TOKEN_LENGTH);
 
-        for(int i = 0; i < TOKEN_LENGTH; ++i) {
-            int index = (int)((double)AlphaNumericString.length() * Math.random());
+        for (int i = 0; i < TOKEN_LENGTH; ++i) {
+            int index = (int) ((double) AlphaNumericString.length() * Math.random());
             sb.append(AlphaNumericString.charAt(index));
         }
 

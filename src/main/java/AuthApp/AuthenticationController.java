@@ -2,26 +2,36 @@ package AuthApp;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.regex.Pattern;
 
+@RestController
+@RequestMapping("/auth")
 public class AuthenticationController {
-    private static AuthenticationController singleInstance = null;
+
     private AuthenticationService authenticationService;
     private static Logger logger = LogManager.getLogger(AuthenticationController.class.getName());
 
-    private AuthenticationController() throws IOException {
-        authenticationService = AuthenticationService.getInstance();
+    @Autowired
+    public void setAuthenticationService(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 
-    public static AuthenticationController getInstance() throws IOException {
-        if (singleInstance == null) {
-            singleInstance = new AuthenticationController();
-        }
 
-        return singleInstance;
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public ResponseEntity<String> addUser(@RequestBody User user){
+        return ResponseEntity.ok(authenticationService.login(user.getEmail(),user.getPassword()));
     }
+
 
     public String login(String email, String password) {
         if (!isValidEmail(email)) {

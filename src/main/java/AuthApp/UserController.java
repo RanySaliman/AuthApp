@@ -2,29 +2,26 @@ package AuthApp;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
+@RestController
+@RequestMapping("/user")
 public class UserController {
-    private static UserController singleInstance = null;
+    @Autowired
     private UserService userService;
+    @Autowired
+    AuthenticationController authenticationController;
     private static Logger logger = LogManager.getLogger(AuthenticationController.class.getName());
 
 
-    private UserController() throws IOException {
-        userService = UserService.getInstance();
-    }
+    private UserController(){}
 
-    public static UserController getInstance() throws IOException {
-        if (singleInstance == null) {
-            singleInstance = new UserController();
-        }
-
-        return singleInstance;
-    }
 
     public boolean updateUserName(String email, String name, String token) throws IOException {
-        AuthenticationController authenticationController = AuthenticationController.getInstance();
 
         if (!authenticationController.isValidName(name)) {
             throw new IllegalArgumentException(String.format("%s is invalid name!", name));
@@ -34,7 +31,6 @@ public class UserController {
     }
 
     public boolean updateUserEmail(String email, String newEmail, String token) throws IOException {
-        AuthenticationController authenticationController = AuthenticationController.getInstance();
 
         if (!authenticationController.isValidEmail(newEmail)) {
             logger.error("invalid email - " + email);
@@ -48,7 +44,6 @@ public class UserController {
     }
 
     public boolean updateUserPassword(String email, String password, String token) throws IOException {
-        AuthenticationController authenticationController = AuthenticationController.getInstance();
 
         if (!authenticationController.isValidPassword(password)) {
             logger.error("invalid password - " + password);
