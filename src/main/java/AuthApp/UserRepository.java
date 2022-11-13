@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Repository
 public class UserRepository {
-    private static UserRepository singleInstance = null;
     private final String usersFilepath = "UsersDB";
     private Map<Integer, User> usersMap;
 
@@ -23,13 +22,6 @@ public class UserRepository {
         parseConfigToMap();
     }
 
-    public static UserRepository getInstance() throws IOException {
-        if (singleInstance == null) {
-            singleInstance = new UserRepository();
-        }
-
-        return singleInstance;
-    }
 
     public boolean addUser(User user) {
         usersMap.put(user.getId(), user);

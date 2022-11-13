@@ -1,5 +1,8 @@
 package AuthApp;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -10,9 +13,12 @@ import java.util.Optional;
 @Service
 class AuthenticationService {
 
+    @Autowired
     private UserRepository userRepository;
     private Map<String, String> usersTokens;
     private static final int TOKEN_LENGTH = 10;
+    private static Logger logger = LogManager.getLogger(AuthenticationController.class.getName());
+
 
 
     private AuthenticationService() {
@@ -24,8 +30,8 @@ class AuthenticationService {
         String token = isValidCredentials(email, password) ? generateToken() : null;
 
         if (token != null) {
-            this.usersTokens.put(email, token);
-        }
+            this.usersTokens.put(token, email);
+        }else logger.error("token is null, check if password is correct");
 
         return token;
     }
@@ -41,8 +47,11 @@ class AuthenticationService {
         return true;
     }
 
-    public boolean isValidToken(String email, String token) {
-        return this.usersTokens.get(email).compareTo(token) == 0;
+//    public boolean isValidToken(String email, String token) {
+//        return this.usersTokens.get(email).compareTo(token) == 0;
+//    }
+    public String returnEmailFromToken(String token) {
+        return this.usersTokens.get(token);
     }
 
     public void updateTokenEmailKey(String oldEmail, String newEmail) {

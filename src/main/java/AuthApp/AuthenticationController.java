@@ -5,10 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,18 +15,19 @@ import java.util.regex.Pattern;
 @RequestMapping("/auth")
 public class AuthenticationController {
 
+    @Autowired
     private AuthenticationService authenticationService;
     private static Logger logger = LogManager.getLogger(AuthenticationController.class.getName());
 
-    @Autowired
-    public void setAuthenticationService(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
-    }
-
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public ResponseEntity<String> addUser(@RequestBody User user){
-        return ResponseEntity.ok(authenticationService.login(user.getEmail(),user.getPassword()));
+    public ResponseEntity<Boolean> addUser(@RequestBody User user) {
+        return ResponseEntity.ok(authenticationService.register(user.getEmail(), user.getName(), user.getPassword()));
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<String> login(@RequestBody User user) {
+        return ResponseEntity.ok(authenticationService.login(user.getEmail(), user.getPassword()));
     }
 
 
@@ -42,7 +40,7 @@ public class AuthenticationController {
     }
 
     public boolean register(String email, String name, String password) {
-        logger.info("currently registering with email: "+ email);
+        logger.info("currently registering with email: " + email);
         if (!isValidEmail(email)) {
             throw new IllegalArgumentException("Invalid email address!");
         }
@@ -57,14 +55,14 @@ public class AuthenticationController {
     }
 
     public boolean isValidPassword(String password) {
-        if(!password.matches(".*[A-Z].*") && password.length() >= 6){
-        logger.error("invalid password, required 6 letters or more");
+        if (!password.matches(".*[A-Z].*") && password.length() >= 6) {
+            logger.error("invalid password, required 6 letters or more");
         }
         return password.matches(".*[A-Z].*") && password.length() >= 6;
     }
 
     public boolean isValidName(String Name) {
-        if(!Name.matches("^[ A-Za-z]+$")) {
+        if (!Name.matches("^[ A-Za-z]+$")) {
             logger.error("invalid Name, must include english letters / capital letters only!");
         }
         return Name.matches("^[ A-Za-z]+$");
